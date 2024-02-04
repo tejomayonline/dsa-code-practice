@@ -4,18 +4,16 @@
 // flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3]
 
 function flatten(array) {
-  let i = 0;
-  function helper(array) {
-    if (Array.isArray(array) && i === array.length - 1) return [];
-    let newArray = [];
-    newArray.concat(helper(array[i] || array));
-
-    console.log(newArray);
-  }
-  helper(array);
-  return newArray;
+  let newArray = [];
   // add whatever parameters you deem necessary - good luck!
-  //   for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      newArray = newArray.concat(flatten(array[i]));
+    } else {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
 }
 
-console.log(flatten([1, 2, 3, [4, 5]]));
+console.log(flatten([1, [2, [3, 4], [[5]]]]));
