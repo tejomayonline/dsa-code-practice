@@ -1,4 +1,4 @@
-let arr = [29, 14, 3, 24, 35, 40, 4, 3, 5];
+let arr = [29, 14, 3, 24, 35, 40, 4, 3, 5, 59, 38, 5, 20, 4, 8, 39];
 
 function selectionSort(arr) {
   //  compare with next el
